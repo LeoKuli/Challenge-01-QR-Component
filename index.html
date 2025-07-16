@@ -2,26 +2,35 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Frontend Mentor | QR code component</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-[#D5E1EF] h-screen flex items-center justify-center px-7">
   <main>
-    <div class="card">
-      <img src="./images/image-qr-code.png" alt="QR code">
-      <div class="text">
-        <h1>Improve your front-end skills by building projects</h1>
-        <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+    <div
+      class="w-full max-w-[20rem] bg-white rounded-2xl shadow-[0px_25px_25px_rgba(0,0,0,0.05)] p-4 pb-10 flex flex-col gap-6">
+      <img src="./images/image-qr-code.png" alt="QR code"
+        class="w-full max-w-[18rem] max-h-[18rem] rounded-xl bg-[#2C7DFA]" />
+      <div class="flex flex-col items-center gap-4 px-4 text-center">
+        <h1 class="text-[#1F314F] text-[22px] font-bold leading-[120%]">Improve your front-end skills by building
+          projects</h1>
+        <p class="text-[#68778D] text-[15px] leading-[140%] tracking-[0.2px]">
+          Scan the QR code to visit Frontend Mentor and take your coding skills to the next level
+        </p>
       </div>
     </div>
   </main>
+
   <script>
     window.va = window.va || function () {
       (window.va.q = window.va.q || []).push(arguments);

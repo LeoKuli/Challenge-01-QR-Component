@@ -1,6 +1,22 @@
 @font-face {
   font-family: 'Figtree';
-  src: url('caminho/para/sua/fonte.ttf'); /* Substitua pelo caminho correto */
+  src: url('../assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('../assets/fonts/static/Figtree-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  src: url('../assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
 }
 
 :root {
@@ -21,9 +37,7 @@
 }
 
 body {
-  border: 2px solid red;
-  /* Remove */
-
+  font-family: 'Figtree', sans-serif;
   background-color: var(--yellow);
   padding: 9.75rem 1.5rem 9.6875rem 1.5rem;
   height: 100vh;
@@ -60,6 +74,42 @@ body {
   align-items: flex-start;
   gap: var(--spacing-150, 0.75rem);
   align-self: stretch;
+}
+
+.content button {
+  background-color: var(--yellow);
+  color: var(--gray-950);
+  font-family: 'Figtree', sans-serif;
+  font-size: var(--font-size-text-preset-3);
+  font-weight: 800;
+  line-height: 150%;
+  padding: var(--spacing-50) var(--spacing-150);
+  border: none;
+  border-radius: var(--spacing-50);
+}
+
+.content time {
+  color: var(--gray-950);
+  font-family: 'Figtree', sans-serif;
+  font-size: var(--font-size-text-preset-3);
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.content h1 {
+  color: var(--gray-950);
+  font-family: 'Figtree', sans-serif;
+  font-size: var(--font-size-text-preset-1);
+  font-weight: 800;
+  line-height: 150%;
+}
+
+.content p {
+  color: var(--gray-500);
+  font-family: 'Figtree', sans-serif;
+  font-size: var(--font-size-text-preset-2);
+  font-weight: 500;
+  line-height: 150%;
 }
 
 .card__author {

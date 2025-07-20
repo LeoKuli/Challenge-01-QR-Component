@@ -1,97 +1,111 @@
 
 # Frontend Mentor - Blog preview card solution
 
-This is a solution to the [Blog preview card challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is my solution to the [Blog preview card challenge](https://www.frontendmentor.io/challenges/blog-preview-card-ckPaj01IcS) on Frontend Mentor. The goal was to build a responsive blog preview card component with hover states based on a given design.
 
-## Table of contents
+## 📸 Screenshot
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+![Project preview](./preview.jpg)
 
-## Overview
+## 🔗 Links
 
-### The challenge
+- [GitHub Repository](https://github.com/LeoKuli/Frontend-Mentor-Challenges/tree/main/Challenge%2002%20-%20Blog%20Preview%20Card)
+- [Live Site]("") 
 
-Users should be able to:
-
-- See hover and focus states for all interactive elements on the page
-
-### Screenshot
-
-![](./preview.jpg)
-
-### Links
-
-- Solution URL: [GitHub Repository](https://github.com/LeoKuli/Frontend-Mentor-Challenges/tree/main/Challenge%2002%20-%20Blog%20Preview%20Card)
-- Live Site URL: []()
-
-## My process
-
-### Built with
+## 🛠️ Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- Custom font integration (Figtree)
 - Flexbox
 - Mobile-first workflow
-- [Tailwind CSS](https://tailwindcss.com/) - For styles
-- Custom font integration (Figtree)
+- Custom CSS properties and configurations
 
-### What I learned
+## 🚀 What I learned
 
-Working on this project helped me practice and improve:
+While working on this project, I practiced and reinforced:
 
-- Implementing custom font families with @font-face
-- Using Tailwind CSS with CDN and custom configuration
-- Creating hover effects and transitions
-- Working with CSS custom properties for consistent theming
-- Building responsive card components with proper spacing
+- How to integrate custom fonts using @font-face declarations
+- Configuring Tailwind CSS with custom colors and font families via CDN
+- Creating card components with custom shadows and borders
+- Implementing smooth hover transitions and interactive states
+- Working with utility-first CSS approach for rapid development
 
-I particularly enjoyed working with the custom shadow effect and hover states:
+I particularly enjoyed creating the distinctive card shadow effect and hover interactions:
 
 ```html
 <div class="bg-white w-full max-w-sm flex flex-col gap-6 p-6 rounded-[20px] border border-dark-gray shadow-[8px_8px_0px_0px_#000000]">
 ```
 
-```css
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          'primary-yellow': '#F4D04E',
-          'dark-gray': '#111111',
-          'medium-gray': '#6B6B6B'
-        }
+```javascript
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        'figtree': ['Figtree', 'sans-serif']
+      },
+      colors: {
+        'primary-yellow': '#F4D04E',
+        'dark-gray': '#111111',
+        'medium-gray': '#6B6B6B'
       }
     }
   }
-</script>
+}
 ```
 
-### Continued development
+## 📊 Web Analytics (Vercel)
 
-Areas I want to continue focusing on in future projects:
+To track visitors and page views, I integrated [Vercel Web Analytics](https://vercel.com/docs/analytics) by injecting the script directly into the HTML file.
 
-- **Advanced Tailwind CSS techniques** - Exploring more utility classes and customization options
-- **CSS Grid layouts** - For more complex card arrangements
-- **Accessibility improvements** - Better focus states and screen reader support
-- **Performance optimization** - Optimizing font loading and CSS delivery
+The following lines were added at the bottom of the `<body>` section:
 
-### Useful resources
+```html
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () {
+    (window.va.q = window.va.q || []).push(arguments);
+  };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+```
 
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Excellent resource for utility-first CSS framework
-- [CSS Tricks - Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Great visual guide for Flexbox
-- [Google Fonts](https://fonts.google.com/) - For font selection and integration best practices
+## 🔄 Continued development
 
-## Author
+Moving forward, I plan to improve:
 
-- GitHub – [@LeoKuli](https://github.com/LeoKuli)
+- 🎯 **Advanced Tailwind CSS techniques** - Exploring more utility classes and component patterns
+- ✨ **CSS Grid layouts** - For more complex card arrangements and responsive designs
+- 🎨 **Design system consistency** - Creating reusable card components with variants
+- 📱 **Accessibility enhancements** - Better focus states, ARIA labels, and keyboard navigation
+
+I also aim to experiment with:
+
+- 🧪 [**Tailwind UI**](https://tailwindui.com/) – to accelerate development with pre-built components
+- ⚡ [**CSS Grid**](https://css-tricks.com/snippets/css/complete-guide-grid/) – for advanced layout techniques
+- 🎨 [**CSS Custom Properties**](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) – for better theming control
+
+---
+
+## 📚 Useful Resources
+
+- [🎨 Tailwind CSS Documentation](https://tailwindcss.com/docs) - Comprehensive guide for utility-first CSS framework
+- [🔤 Google Fonts](https://fonts.google.com/) - Excellent resource for web typography and font integration
+- [🔍 CSS Tricks - Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Visual guide for mastering Flexbox layouts
+- [📝 Frontend Mentor Community](https://www.frontendmentor.io/community) - Great place for feedback and learning from other developers
+
+---
+
+## 👤 Author
+
+- GitHub – [@LeoKuli](https://github.com/LeoKuli)  
 - Frontend Mentor – [@LeoKuli](https://www.frontendmentor.io/profile/LeoKuli)
+
+---
+
+## 🙌 Acknowledgments
+
+Thanks to the amazing [Frontend Mentor](https://www.frontendmentor.io) community for providing high-quality, real-world challenges that help us grow as developers.
+
+If you have any **suggestions** or **feedback**, I'd love to hear from you!  
+Feel free to open an issue or leave a comment in the repo.

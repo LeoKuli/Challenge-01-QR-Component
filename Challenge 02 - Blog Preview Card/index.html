@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <link href="../dist/output.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'figtree': ['Figtree', 'sans-serif']
+          },
+          colors: {
+            'primary-yellow': '#F4D04E',
+            'dark-gray': '#111111',
+            'medium-gray': '#6B6B6B'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @font-face {
+      font-family: 'Figtree';
+      src: url('./assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Figtree';
+      src: url('./assets/fonts/static/Figtree-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Figtree';
+      src: url('./assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
+      font-weight: 800;
+      font-style: normal;
+    }
+  </style>
   <title>Frontend Mentor | Blog preview card</title>  
 </head>
 <body class="font-figtree bg-primary-yellow min-h-screen flex items-center justify-center p-6">

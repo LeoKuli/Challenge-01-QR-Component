@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Figtree';
+  src: url('caminho/para/sua/fonte.ttf'); /* Substitua pelo caminho correto */
+}
+
+:root {
+  --yellow: #F4D04E;
+  --gray-950: #111111;
+  --gray-500: #6B6B6B;
+  --white: #FFFFFF;
+
+  --spacing-50: 4px;
+  --spacing-100: 8px;
+  --spacing-150: 12px;
+  --spacing-200: 24px;
+
+  --font-size-text-preset-1: 24px;
+  --font-size-text-preset-2: 16px;
+  --font-size-text-preset-3: 14px;
+
+}
+
+body {
+  border: 2px solid red;
+  /* Remove */
+
+  background-color: var(--yellow);
+  padding: 9.75rem 1.5rem 9.6875rem 1.5rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: var(--white);
+  width: 100%;
+  max-width: 24rem; 
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: flex-start;
+  gap: var(--spacing-200, 1.5rem);
+  padding: var(--spacing-200, 1.5rem);
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-gray-950, #111);
+  background: var(--color-white, #FFF);
+  box-shadow: 8px 8px 0px 0px #000;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 0.625rem;
+  background: var(--color-yellow, #F4D04E);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-150, 0.75rem);
+  align-self: stretch;
+}
+
+.card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-100, 0.5rem);
+}
+
+.card__author img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+}
+
+.card__author span {
+  color: var(--color-gray-950, #111);
+
+  /* text-preset-3-bold */
+  font-family: Figtree;
+  font-size: var(--font-size-text-preset-3, 0.875rem);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 150%; /* 1.3125rem */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@media(max-width: 375px) {
+  body {
+    border: 3px solid blue; /* Remove */    
+  }
+
+  .card {
+    max-width: 23.4375rem;
+  }
+}

@@ -1,0 +1,16 @@
+
+{
+  "name": "frontend-challenges",
+  "version": "1.0.0",
+  "description": "Frontend Mentor Challenges with Live Reload",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "chokidar": "^3.5.3",
+    "ws": "^8.14.2"
+  }
+}

@@ -42,7 +42,8 @@ const wss = new WebSocket.Server({ server });
 // Script de live reload para injetar no HTML
 const liveReloadScript = `
 <script>
-  const ws = new WebSocket('ws://0.0.0.0:${PORT}');
+  const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+  const ws = new WebSocket(protocol + window.location.host);
   ws.onmessage = function(event) {
     if (event.data === 'reload') {
       location.reload();

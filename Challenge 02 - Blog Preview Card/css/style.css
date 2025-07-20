@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: 'Figtree';
   src: url('../assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
@@ -20,20 +21,33 @@
 }
 
 :root {
+  /* Colors */
   --yellow: #F4D04E;
   --gray-950: #111111;
   --gray-500: #6B6B6B;
   --white: #FFFFFF;
+  --black: #000000;
 
-  --spacing-50: 4px;
-  --spacing-100: 8px;
-  --spacing-150: 12px;
-  --spacing-200: 24px;
+  /* Spacing */
+  --spacing-50: 0.25rem;
+  --spacing-100: 0.5rem;
+  --spacing-150: 0.75rem;
+  --spacing-200: 1.5rem;
 
-  --font-size-text-preset-1: 24px;
-  --font-size-text-preset-2: 16px;
-  --font-size-text-preset-3: 14px;
+  /* Typography */
+  --font-family-primary: 'Figtree', sans-serif;
+  --font-size-small: 0.75rem;
+  --font-size-body: 0.875rem;
+  --font-size-title: 1.25rem;
+  --font-weight-medium: 500;
+  --font-weight-bold: 800;
+  --line-height: 150%;
 
+  /* Layout */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.625rem;
+  --border-radius-lg: 1.25rem;
+  --border-radius-full: 2rem;
 }
 
 * {
@@ -43,7 +57,7 @@
 }
 
 body {
-  font-family: 'Figtree', sans-serif;
+  font-family: var(--font-family-primary);
   background-color: var(--yellow);
   padding: 9.75rem 1.5rem 9.6875rem 1.5rem;
   height: 100vh;
@@ -58,93 +72,97 @@ body {
   max-width: 24rem; 
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
   align-items: flex-start;
-  gap: var(--spacing-200, 1.5rem);
-  padding: var(--spacing-200, 1.5rem);
-  border-radius: 1.25rem;
-  border: 1px solid var(--color-gray-950, #111);
-  background: var(--color-white, #FFF);
-  box-shadow: 8px 8px 0px 0px #000;
+  gap: var(--spacing-200);
+  padding: var(--spacing-200);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--gray-950);
+  box-shadow: 8px 8px 0px 0px var(--black);
 }
 
-.card img {
+.card__image {
   width: 100%;
-  border-radius: 0.625rem;
-  background: var(--color-yellow, #F4D04E);
+  border-radius: var(--border-radius-md);
+  background: var(--yellow);
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--spacing-150, 0.75rem);
+  gap: var(--spacing-150);
   align-self: stretch;
 }
 
 .content button {
   display: flex;
-  padding: var(--spacing-50, 0.25rem) var(--spacing-150, 0.75rem);
+  padding: var(--spacing-50) var(--spacing-150);
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-100, 0.5rem);
-  border-radius: 0.25rem;
-  background: var(--color-yellow, #F4D04E);
+  gap: var(--spacing-100);
+  border-radius: var(--border-radius-sm);
+  background: var(--yellow);
   border: none;
-  color: var(--color-gray-950, #111);
-  font-family: Figtree;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 150%;
+  color: var(--gray-950);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.content button:hover {
+  background-color: #F0CC3E;
 }
 
 .content time {
-  color: var(--color-gray-950, #111);
-  font-family: Figtree;
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%; 
+  color: var(--gray-950);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height); 
 }
 
 .content h1 {
-  color: var(--color-gray-950, #111);
-  font-family: Figtree;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 150%; 
+  color: var(--gray-950);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height); 
   align-self: stretch;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.content h1:hover {
+  color: var(--yellow);
 }
 
 .content p {
-  color: var(--color-gray-500, #6B6B6B);
-  font-family: Figtree;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;   
+  color: var(--gray-500);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height);   
 }
 
 .card__author {
   display: flex;
   align-items: center;
-  gap: var(--spacing-100, 0.5rem);
+  gap: var(--spacing-100);
 }
 
 .card__author img {
   width: 2rem;
   height: 2rem;
-  border-radius: 2rem;
+  border-radius: var(--border-radius-full);
 }
 
 .card__author span {
-  color: var(--color-gray-950, #111);
-  font-family: Figtree;
-  font-size: var(--font-size-text-preset-3, 0.875rem);
-  font-style: normal;
-  font-weight: 800;
-  line-height: 150%; 
+  color: var(--gray-950);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height); 
 }
-

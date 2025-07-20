@@ -36,6 +36,12 @@
 
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Figtree', sans-serif;
   background-color: var(--yellow);
@@ -77,39 +83,48 @@ body {
 }
 
 .content button {
-  background-color: var(--yellow);
-  color: var(--gray-950);
-  font-family: 'Figtree', sans-serif;
-  font-size: var(--font-size-text-preset-3);
+  display: flex;
+  padding: var(--spacing-50, 0.25rem) var(--spacing-150, 0.75rem);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-100, 0.5rem);
+  border-radius: 0.25rem;
+  background: var(--color-yellow, #F4D04E);
+  border: none;
+  color: var(--color-gray-950, #111);
+  font-family: Figtree;
+  font-size: 0.75rem;
+  font-style: normal;
   font-weight: 800;
   line-height: 150%;
-  padding: var(--spacing-50) var(--spacing-150);
-  border: none;
-  border-radius: var(--spacing-50);
 }
 
 .content time {
-  color: var(--gray-950);
-  font-family: 'Figtree', sans-serif;
-  font-size: var(--font-size-text-preset-3);
+  color: var(--color-gray-950, #111);
+  font-family: Figtree;
+  font-size: 0.75rem;
+  font-style: normal;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 150%; 
 }
 
 .content h1 {
-  color: var(--gray-950);
-  font-family: 'Figtree', sans-serif;
-  font-size: var(--font-size-text-preset-1);
+  color: var(--color-gray-950, #111);
+  font-family: Figtree;
+  font-size: 1.25rem;
+  font-style: normal;
   font-weight: 800;
-  line-height: 150%;
+  line-height: 150%; 
+  align-self: stretch;
 }
 
 .content p {
-  color: var(--gray-500);
-  font-family: 'Figtree', sans-serif;
-  font-size: var(--font-size-text-preset-2);
+  color: var(--color-gray-500, #6B6B6B);
+  font-family: Figtree;
+  font-size: 0.875rem;
+  font-style: normal;
   font-weight: 500;
-  line-height: 150%;
+  line-height: 150%;   
 }
 
 .card__author {
@@ -126,27 +141,10 @@ body {
 
 .card__author span {
   color: var(--color-gray-950, #111);
-
-  /* text-preset-3-bold */
   font-family: Figtree;
   font-size: var(--font-size-text-preset-3, 0.875rem);
   font-style: normal;
   font-weight: 800;
-  line-height: 150%; /* 1.3125rem */
+  line-height: 150%; 
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-@media(max-width: 375px) {
-  body {
-    border: 3px solid blue; /* Remove */    
-  }
-
-  .card {
-    max-width: 23.4375rem;
-  }
-}

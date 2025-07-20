@@ -5,21 +5,21 @@
 
 @font-face {
   font-family: 'Figtree';
-  src: url('../Challenge 02 - Blog Preview Card/assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
+  src: url('./Challenge 02 - Blog Preview Card/assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Figtree';
-  src: url('../Challenge 02 - Blog Preview Card/assets/fonts/static/Figtree-Medium.ttf') format('truetype');
+  src: url('./Challenge 02 - Blog Preview Card/assets/fonts/static/Figtree-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Figtree';
-  src: url('../Challenge 02 - Blog Preview Card/assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
+  src: url('./Challenge 02 - Blog Preview Card/assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
 }

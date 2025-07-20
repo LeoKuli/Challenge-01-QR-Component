@@ -30,84 +30,29 @@ function getLatestFolder() {
 let currentFolder = getLatestFolder();
 console.log(`Servindo a pasta: ${currentFolder}`);
 
-// Servir arquivos estáticos da pasta mais recente
-app.use(express.static(path.join(__dirname, currentFolder)));
-
-// Criar servidor WebSocket para live reload
+// Criar servidor HTTP
 const server = app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor rodando em http://0.0.0.0:${PORT}`);
   console.log(`Monitorando pasta: ${currentFolder}`);
 });
 
+// Criar servidor WebSocket
 const wss = new WebSocket.Server({ server });
-
-// Monitorar mudanças nos arquivos da pasta atual
-let watcher = chokidar.watch(`${currentFolder}/**/*`, {
-  ignored: /node_modules/,
-  persistent: true
-});
-
-// Monitorar criação de novas pastas Challenge
-const rootWatcher = chokidar.watch('./', {
-  ignored: /node_modules/,
-  persistent: true,
-  depth: 1
-});
-
-rootWatcher.on('addDir', (dirPath) => {
-  const folderName = path.basename(dirPath);
-  if (folderName.startsWith('Challenge') && folderName !== currentFolder) {
-    console.log(`Nova pasta detectada: ${folderName}`);
-    
-    // Atualizar pasta atual
-    currentFolder = folderName;
-    
-    // Parar o watcher anterior
-    watcher.close();
-    
-    // Criar novo watcher para a nova pasta
-    watcher = chokidar.watch(`${currentFolder}/**/*`, {
-      ignored: /node_modules/,
-      persistent: true
-    });
-    
-    // Reconfigurar eventos do novo watcher
-    watcher.on('change', () => {
-      wss.clients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN) {
-          client.send('reload');
-        }
-      });
-    });
-    
-    console.log(`Agora servindo: ${currentFolder}`);
-    
-    // Notificar clientes para recarregar
-    wss.clients.forEach((client) => {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send('reload');
-      }
-    });
-  }
-});
-
-watcher.on('change', () => {
-  // Enviar sinal de reload para todos os clientes conectados
-  wss.clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send('reload');
-    }
-  });
-});
 
 // Script de live reload para injetar no HTML
 const liveReloadScript = `
 <script>
-  const ws = new WebSocket('ws://localhost:${PORT}');
+  const ws = new WebSocket('ws://0.0.0.0:${PORT}');
   ws.onmessage = function(event) {
     if (event.data === 'reload') {
       location.reload();
     }
+  };
+  ws.onopen = function() {
+    console.log('Live reload conectado');
+  };
+  ws.onerror = function(error) {
+    console.log('Erro no live reload:', error);
   };
 </script>
 `;
@@ -125,8 +70,87 @@ app.get('*.html', (req, res, next) => {
   }
 });
 
-// Middleware para servir arquivos estáticos atualizados
-app.use((req, res, next) => {
-  const staticPath = path.join(__dirname, currentFolder);
-  express.static(staticPath)(req, res, next);
+// Interceptar a rota raiz para servir index.html
+app.get('/', (req, res) => {
+  const indexPath = path.join(__dirname, currentFolder, 'index.html');
+  
+  if (fs.existsSync(indexPath)) {
+    let html = fs.readFileSync(indexPath, 'utf8');
+    html = html.replace('</body>', liveReloadScript + '</body>');
+    res.send(html);
+  } else {
+    res.status(404).send('index.html não encontrado na pasta: ' + currentFolder);
+  }
+});
+
+// Servir arquivos estáticos
+app.use(express.static(path.join(__dirname, currentFolder)));
+
+// Monitorar mudanças nos arquivos da pasta atual
+let watcher = chokidar.watch(`${currentFolder}/**/*`, {
+  ignored: /node_modules/,
+  persistent: true
+});
+
+// Monitorar criação de novas pastas Challenge
+const rootWatcher = chokidar.watch('./', {
+  ignored: /node_modules/,
+  persistent: true,
+  depth: 1
+});
+
+// Função para configurar eventos do watcher
+function setupWatcherEvents(watcher) {
+  watcher.on('change', () => {
+    console.log('Arquivo alterado, recarregando...');
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send('reload');
+      }
+    });
+  });
+}
+
+// Configurar eventos do watcher inicial
+setupWatcherEvents(watcher);
+
+// Monitorar criação de novas pastas
+rootWatcher.on('addDir', (dirPath) => {
+  const folderName = path.basename(dirPath);
+  if (folderName.startsWith('Challenge') && folderName !== currentFolder) {
+    console.log(`Nova pasta detectada: ${folderName}`);
+    
+    // Atualizar pasta atual
+    currentFolder = folderName;
+    
+    // Parar o watcher anterior
+    watcher.close();
+    
+    // Criar novo watcher para a nova pasta
+    watcher = chokidar.watch(`${currentFolder}/**/*`, {
+      ignored: /node_modules/,
+      persistent: true
+    });
+    
+    // Configurar eventos do novo watcher
+    setupWatcherEvents(watcher);
+    
+    console.log(`Agora servindo: ${currentFolder}`);
+    
+    // Notificar clientes para recarregar
+    wss.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send('reload');
+      }
+    });
+  }
+});
+
+// Log de conexões WebSocket
+wss.on('connection', (ws) => {
+  console.log('Cliente conectado ao live reload');
+  
+  ws.on('close', () => {
+    console.log('Cliente desconectado do live reload');
+  });
 });

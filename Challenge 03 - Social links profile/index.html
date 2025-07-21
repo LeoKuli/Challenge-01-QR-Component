@@ -1,11 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">  
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Social links profile</title>
+  <link rel="stylesheet" href="./src/style.css">
 </head>
-<body>  
+<body class="bg-grey-900 min-h-screen flex items-center justify-center p-6 font-inter">
+  <main class="bg-grey-800 rounded-xl p-6 w-full max-w-sm text-center">
+    <!-- Profile Image -->
+    <img src="./assets/images/avatar-jessica.jpeg" alt="Jessica Randall" class="w-24 h-24 rounded-full mx-auto mb-6">
+    
+    <!-- Name and Location -->
+    <h1 class="text-white text-2xl font-semibold mb-1">Jessica Randall</h1>
+    <p class="text-green text-sm font-bold mb-6">London, United Kingdom</p>
+    
+    <!-- Description -->
+    <p class="text-white text-sm mb-6">"Front-end developer and avid reader."</p>
+    
+    <!-- Social Links -->
+    <div class="space-y-3">
+      <a href="#" class="block bg-grey-700 text-white py-3 px-6 rounded-lg hover:bg-green hover:text-grey-900 font-semibold transition-colors duration-200">
+        GitHub
+      </a>
+      <a href="#" class="block bg-grey-700 text-white py-3 px-6 rounded-lg hover:bg-green hover:text-grey-900 font-semibold transition-colors duration-200">
+        Frontend Mentor
+      </a>
+      <a href="#" class="block bg-grey-700 text-white py-3 px-6 rounded-lg hover:bg-green hover:text-grey-900 font-semibold transition-colors duration-200">
+        LinkedIn
+      </a>
+      <a href="#" class="block bg-grey-700 text-white py-3 px-6 rounded-lg hover:bg-green hover:text-grey-900 font-semibold transition-colors duration-200">
+        Twitter
+      </a>
+      <a href="#" class="block bg-grey-700 text-white py-3 px-6 rounded-lg hover:bg-green hover:text-grey-900 font-semibold transition-colors duration-200">
+        Instagram
+      </a>
+    </div>
+  </main>
 </body>
 </html>

@@ -5,10 +5,14 @@ attached_assets/
 # Dependencies
 node_modules/
 package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Build outputs
 dist/
 build/
+.next/
+.nuxt/
 
 # Environment variables
 .env
@@ -29,15 +33,20 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+*.swp
+*.swo
 
 # Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+pnpm-debug.log*
 
 # Runtime data
-pids
+pids/
 *.pid
 *.seed
 *.pid.lock
@@ -45,3 +54,14 @@ pids
 # Temporary folders
 tmp/
 temp/
+
+# Cache directories
+.npm/
+.yarn/
+.cache/
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# ESLint cache
+.eslintcache

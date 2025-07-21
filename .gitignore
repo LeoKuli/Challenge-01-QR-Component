@@ -13,6 +13,8 @@ dist/
 build/
 .next/
 .nuxt/
+.vite/
+out/
 
 # Environment variables
 .env

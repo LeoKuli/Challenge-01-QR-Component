@@ -1,7 +1,7 @@
 modules = ["nodejs-20"]
 
 [workflows]
-runButton = "Vite Dev Server"
+runButton = "Challenge 03 Dev Server"
 
 [[workflows.workflow]]
 name = "Vite Dev Server"

@@ -1,0 +1,19 @@
+
+{
+  "name": "challenge-02-blog-preview-card",
+  "version": "1.0.0",
+  "description": "Blog Preview Card Challenge - Frontend Mentor",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5000",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "keywords": ["frontend-mentor", "tailwindcss", "html", "css"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}

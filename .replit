@@ -1,0 +1,26 @@
+modules = ["nodejs-20"]
+
+[workflows]
+runButton = "Vite Dev Server"
+
+[[workflows.workflow]]
+name = "Vite Dev Server"
+author = 45076482
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd \"Challenge 02 - Blog Preview Card\" && npm install && npm run dev"
+
+[[workflows.workflow]]
+name = "Blog Preview Server"
+author = 45076482
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd \"Challenge 02 - Blog Preview Card\" && python -m http.server 5000 --bind 0.0.0.0"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

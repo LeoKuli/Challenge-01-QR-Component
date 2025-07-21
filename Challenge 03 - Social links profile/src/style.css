@@ -81,9 +81,17 @@ body {
   display: block;
 }
 
-.social-link:hover {
+.social-link:hover,
+.social-link:focus {
   background-color: hsl(75, 94%, 57%);
   color: hsl(0, 0%, 20%);
+  outline: 2px solid hsl(75, 94%, 57%);
+  outline-offset: 2px;
+}
+
+.social-link:focus {
+  outline: 3px solid hsl(75, 94%, 57%);
+  outline-offset: 2px;
 }
 
 /* Mobile responsivo */

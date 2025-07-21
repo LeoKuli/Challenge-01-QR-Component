@@ -37,7 +37,7 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd \"Challenge 03 - Social links profile\" && python -m http.server 5001 --bind 0.0.0.0"
+args = "cd \"Challenge 03 - Social links profile\" && python3 -m http.server 5001 --bind 0.0.0.0"
 
 [[ports]]
 localPort = 5000

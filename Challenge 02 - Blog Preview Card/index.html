@@ -1,79 +1,157 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            'figtree': ['Figtree', 'sans-serif']
-          },
-          colors: {
-            'primary-yellow': '#F4D04E',
-            'dark-gray': '#111111',
-            'medium-gray': '#6B6B6B'
-          }
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Blog preview card</title>
+  <style>
+    /* Reset e base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Figtree', sans-serif;
+      background-color: hsl(47, 88%, 63%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* Card principal */
+    .card {
+      background-color: hsl(0, 0%, 100%);
+      border-radius: 20px;
+      border: 1px solid hsl(0, 0%, 7%);
+      box-shadow: 8px 8px 0px 0px hsl(0, 0%, 7%);
+      padding: 24px;
+      max-width: 384px;
+      width: 100%;
+    }
+
+    /* Imagem */
+    .card__image {
+      width: 100%;
+      height: 200px;
+      border-radius: 10px;
+      object-fit: cover;
+      margin-bottom: 24px;
+    }
+
+    /* Tag Learning */
+    .card__tag {
+      background-color: hsl(47, 88%, 63%);
+      color: hsl(0, 0%, 7%);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 4px;
+      border: none;
+      display: inline-block;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .card__tag:hover {
+      background-color: hsl(47, 88%, 58%);
+    }
+
+    /* Data */
+    .card__date {
+      color: hsl(0, 0%, 7%);
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    /* Título */
+    .card__title {
+      color: hsl(0, 0%, 7%);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .card__title:hover {
+      color: hsl(47, 88%, 63%);
+    }
+
+    /* Descrição */
+    .card__description {
+      color: hsl(0, 0%, 42%);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    /* Autor */
+    .card__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card__avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .card__author-name {
+      color: hsl(0, 0%, 7%);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    /* Responsive */
+    @media (max-width: 375px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 20px;
+        max-width: 327px;
+      }
+
+      .card__title {
+        font-size: 18px;
       }
     }
-  </script>
-  <style>
-    @font-face {
-      font-family: 'Figtree';
-      src: url('./assets/fonts/Figtree-VariableFont_wght.ttf') format('truetype');
-      font-weight: 100 900;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: 'Figtree';
-      src: url('./assets/fonts/static/Figtree-Medium.ttf') format('truetype');
-      font-weight: 500;
-      font-style: normal;
-    }
-    
-    @font-face {
-      font-family: 'Figtree';
-      src: url('./assets/fonts/static/Figtree-ExtraBold.ttf') format('truetype');
-      font-weight: 800;
-      font-style: normal;
-    }
   </style>
-  <title>Frontend Mentor | Blog preview card</title>  
 </head>
-<body class="font-figtree bg-primary-yellow min-h-screen flex items-center justify-center p-4 md:p-6">
+<body>
   <main>
-    <div class="bg-white w-full max-w-[384px] flex flex-col gap-6 p-6 rounded-[20px] border border-dark-gray shadow-[8px_8px_0px_0px_#000000]">
+    <article class="card">
+      <img src="./assets/images/illustration-article.svg" alt="Article illustration" class="card__image">
       
-      <img src="./assets/images/illustration-article.svg" alt="illustration-article" class="w-full h-[200px] object-cover rounded-[10px]">
+      <button class="card__tag">Learning</button>
       
-      <div class="flex flex-col gap-3">
-        <button class="bg-primary-yellow text-dark-gray text-xs font-extrabold px-3 py-1 rounded-[4px] w-fit cursor-pointer transition-colors duration-200 hover:bg-[#F0CC3E]">Learning</button>      
-        <time class="text-dark-gray text-xs font-medium">Published 21 Dec 2023</time>      
-        <h1 class="text-dark-gray text-xl font-extrabold leading-[150%] cursor-pointer transition-colors duration-200 hover:text-primary-yellow">HTML & CSS foundations</h1>      
-        <p class="text-medium-gray text-sm font-medium leading-[150%]">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+      <time class="card__date">Published 21 Dec 2023</time>
+      
+      <h1 class="card__title">HTML & CSS foundations</h1>
+      
+      <p class="card__description">These languages are the backbone of every website, defining structure, content, and presentation.</p>
+      
+      <div class="card__author">
+        <img src="./assets/images/image-avatar.webp" alt="Greg Hooper" class="card__avatar">
+        <span class="card__author-name">Greg Hooper</span>
       </div>
-      
-      <div class="flex items-center gap-3">
-        <img src="./assets/images/image-avatar.webp" alt="avatar" class="w-8 h-8 rounded-full">
-        <span class="text-dark-gray text-sm font-extrabold">Greg Hooper</span>
-      </div>
-      
-    </div>  
+    </article>
   </main>
-
-  <!-- Vercel Web Analytics -->
-  <script>
-    window.va = window.va || function () {
-      (window.va.q = window.va.q || []).push(arguments);
-    };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

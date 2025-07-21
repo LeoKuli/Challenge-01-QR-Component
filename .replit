@@ -21,6 +21,15 @@ mode = "sequential"
 task = "shell.exec"
 args = "cd \"Challenge 02 - Blog Preview Card\" && python -m http.server 5000 --bind 0.0.0.0"
 
+[[workflows.workflow]]
+name = "Challenge 03 Dev Server"
+author = 45076482
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd \"Challenge 03 - Social links profile\" && npm install && npm run dev"
+
 [[ports]]
 localPort = 5000
 externalPort = 80

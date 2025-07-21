@@ -17,6 +17,9 @@ export default {
         'grey-700': 'hsl(0, 0%, 20%)',
         'grey-800': 'hsl(0, 0%, 12%)',
         'grey-900': 'hsl(0, 0%, 8%)'
+      },
+      spacing: {
+        '22': '88px'
       }
     },
   },

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,27 +6,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <title>Frontend Mentor | Social links profile</title>
-  <link rel="stylesheet" href="./src/style.css">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'inter': ['Inter', 'sans-serif']
+          },
+          colors: {
+            'dark-bg': 'hsl(0, 0%, 8%)',
+            'card-bg': 'hsl(0, 0%, 12%)',
+            'link-bg': 'hsl(0, 0%, 20%)',
+            'green-accent': 'hsl(75, 94%, 57%)',
+            'white-text': 'hsl(0, 0%, 100%)',
+            'dark-text': 'hsl(0, 0%, 20%)'
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-  <main class="card">
+<body class="bg-dark-bg min-h-screen flex items-center justify-center p-6">
+  <main class="bg-card-bg rounded-xl p-10 w-full max-w-sm text-center">
     <!-- Profile Image -->
-    <img src="./assets/images/avatar-jessica.jpeg" alt="Jessica Randall" class="avatar">
+    <img src="./assets/images/avatar-jessica.jpeg" alt="Jessica Randall" 
+         class="w-22 h-22 rounded-full mx-auto mb-6">
 
     <!-- Name and Location -->
-    <h1 class="name">Jessica Randall</h1>
-    <p class="location">London, United Kingdom</p>
+    <h1 class="text-white-text text-2xl font-semibold mb-1">Jessica Randall</h1>
+    <p class="text-green-accent text-sm font-bold mb-6">London, United Kingdom</p>
 
     <!-- Description -->
-    <p class="description">"Front-end developer and avid reader."</p>
+    <p class="text-white-text text-sm font-normal leading-relaxed mb-6">"Front-end developer and avid reader."</p>
 
     <!-- Social Links -->
-    <nav class="social-links" role="navigation" aria-label="Jessica's social media profiles">
-      <a href="#" class="social-link" aria-label="Visit Jessica's GitHub profile">GitHub</a>
-      <a href="#" class="social-link" aria-label="Visit Jessica's Frontend Mentor profile">Frontend Mentor</a>
-      <a href="#" class="social-link" aria-label="Visit Jessica's LinkedIn profile">LinkedIn</a>
-      <a href="#" class="social-link" aria-label="Visit Jessica's Twitter profile">Twitter</a>
-      <a href="#" class="social-link" aria-label="Visit Jessica's Instagram profile">Instagram</a>
+    <nav class="flex flex-col gap-4" role="navigation" aria-label="Jessica's social media profiles">
+      <a href="#" class="bg-link-bg text-white-text no-underline py-3 px-6 rounded-lg font-bold text-sm transition-all duration-300 ease-in-out hover:bg-green-accent hover:text-dark-text focus:bg-green-accent focus:text-dark-text focus:outline-none focus:ring-2 focus:ring-green-accent focus:ring-offset-2" 
+         aria-label="Visit Jessica's GitHub profile">GitHub</a>
+      <a href="#" class="bg-link-bg text-white-text no-underline py-3 px-6 rounded-lg font-bold text-sm transition-all duration-300 ease-in-out hover:bg-green-accent hover:text-dark-text focus:bg-green-accent focus:text-dark-text focus:outline-none focus:ring-2 focus:ring-green-accent focus:ring-offset-2" 
+         aria-label="Visit Jessica's Frontend Mentor profile">Frontend Mentor</a>
+      <a href="#" class="bg-link-bg text-white-text no-underline py-3 px-6 rounded-lg font-bold text-sm transition-all duration-300 ease-in-out hover:bg-green-accent hover:text-dark-text focus:bg-green-accent focus:text-dark-text focus:outline-none focus:ring-2 focus:ring-green-accent focus:ring-offset-2" 
+         aria-label="Visit Jessica's LinkedIn profile">LinkedIn</a>
+      <a href="#" class="bg-link-bg text-white-text no-underline py-3 px-6 rounded-lg font-bold text-sm transition-all duration-300 ease-in-out hover:bg-green-accent hover:text-dark-text focus:bg-green-accent focus:text-dark-text focus:outline-none focus:ring-2 focus:ring-green-accent focus:ring-offset-2" 
+         aria-label="Visit Jessica's Twitter profile">Twitter</a>
+      <a href="#" class="bg-link-bg text-white-text no-underline py-3 px-6 rounded-lg font-bold text-sm transition-all duration-300 ease-in-out hover:bg-green-accent hover:text-dark-text focus:bg-green-accent focus:text-dark-text focus:outline-none focus:ring-2 focus:ring-green-accent focus:ring-offset-2" 
+         aria-label="Visit Jessica's Instagram profile">Instagram</a>
     </nav>
   </main>
 

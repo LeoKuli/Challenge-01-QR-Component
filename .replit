@@ -1,7 +1,7 @@
 modules = ["nodejs-20"]
 
 [workflows]
-runButton = "Challenge 03 Dev Server"
+runButton = "Social Links Static Server"
 
 [[workflows.workflow]]
 name = "Vite Dev Server"
@@ -29,6 +29,15 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "cd \"Challenge 03 - Social links profile\" && npm install && npm run dev"
+
+[[workflows.workflow]]
+name = "Social Links Static Server"
+author = 45076482
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd \"Challenge 03 - Social links profile\" && python3 -m http.server 5001 --bind 0.0.0.0"
 
 [[ports]]
 localPort = 5000
